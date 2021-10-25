@@ -1,0 +1,42 @@
+﻿<Window x:Class="PersonalCars.WindowStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalCars"
+        mc:Ignorable="d"
+        Title="Сотрудники" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowStyle}"
+        Icon="./Img/Icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Style="{StaticResource Head}"/>
+        <Rectangle Grid.Row="1" Style="{StaticResource Body}"/>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" Name="dgStaff" Width="740" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Width="5*" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Width="5*" Binding="{Binding Password}"/>
+                <DataGridTemplateColumn Width="2*">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Style="{StaticResource BtnTable}" Name="btnEdit" Content="Изменить" Click="btnEdit_Click"/>
+                                <Button Style="{StaticResource BtnTable}" Name="btnDel" Content="Удалить" Click="btnDel_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnBack" Content="Назад" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnBack_Click"/>
+        <Button Name="btnAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" Width="120" Height="40" Grid.Row="1" Click="btnAdd_Click"/>
+        <Label Style="{StaticResource HeadLabel}" Content="Просмотр сотрудников" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Foreground="White"/>
+        <Image Source="Img/logo.png" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

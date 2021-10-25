@@ -1,0 +1,36 @@
+﻿<Window x:Class="PersonalCars.WindowOwnersCars"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalCars"
+        mc:Ignorable="d"
+        Title="Автомобили по владельцу" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowStyle}"
+        Icon="./Img/Icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Style="{StaticResource Head}"/>
+        <Rectangle Grid.Row="1" Style="{StaticResource Body}"/>
+
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" Name="dgCars" Width="740" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Марка" Width="2.3*" Binding="{Binding Marks.Title}"/>
+                <DataGridTextColumn Header="Гос. номер" Width="5*" Binding="{Binding StateNumber}"/>
+                <DataGridTextColumn Header="Цвет" Width="2*" Binding="{Binding Colors.Title}"/>
+                <DataGridTextColumn x:Name="IsForeign" Header="Иномарка" Width="2*" Binding="{Binding IsForeign}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnBack" Content="Назад" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnBack_Click"/>
+        <Label Style="{StaticResource HeadLabel}" Content="Просмотр автомобилей владельца" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Foreground="White"/>
+        <Label Content="Владелец:" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <ComboBox Name="cbOwners" HorizontalAlignment="Left" Margin="100,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" Height="30" DropDownClosed="cbOwners_DropDownClosed"/>
+        <Label Name="lForeign" HorizontalAlignment="Left" Margin="500,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Image Source="Img/logo.png" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="0,10,0,0"/>
+    </Grid>
+</Window>

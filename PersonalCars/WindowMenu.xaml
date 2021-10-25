@@ -1,0 +1,34 @@
+﻿<Window x:Class="PersonalCars.WindowMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalCars"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowStyle}"
+        Icon="./Img/Icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Style="{StaticResource Head}" Fill="#FF93001A"/>
+        <Rectangle Grid.Row="1" Style="{StaticResource Body}" Fill="#FFFBEEDA"/>
+        <Image Source="Img/logo.png" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="0,10,0,0"/>
+
+        <Button Name="btnColors" Content="Цвета" HorizontalAlignment="Left" Margin="100,0,0,120" Grid.Row="1" VerticalAlignment="Center" Click="btnColors_Click"/>
+        <Button Name="btnMarks" Content="Марки" HorizontalAlignment="Left" Margin="100,120,0,0" Grid.Row="1" VerticalAlignment="Center" Click="btnMarks_Click"/>
+        <Button Name="btnOwners" Content="Владельцы" HorizontalAlignment="Left" Margin="270,0,0,120" Grid.Row="1" VerticalAlignment="Center" Click="btnOwners_Click"/>
+        <Button Name="btnStaff" Content="Сотрудники" HorizontalAlignment="Left" Margin="270,120,0,0" Grid.Row="1" VerticalAlignment="Center" Click="btnStaff_Click"/>
+        <Button Name="btnCars" Content="Автомобили" HorizontalAlignment="Left" Margin="185,0,0,0" Grid.Row="1" VerticalAlignment="Center" Click="btnCars_Click"/>
+        <Button Name="btnExit" Content="Выход" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnExit_Click" Background="#FF4E0012"/>
+        <Label Style="{StaticResource HeadLabel}" Content="Главное меню" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Foreground="White"/>
+        <Button Style="{StaticResource BtnBig}" Name="btnOC" Content="Авто по владельцу" HorizontalAlignment="Right" Margin="0,0,100,110" Grid.Row="1" VerticalAlignment="Center" Click="btnOC_Click"/>
+        <Button Style="{StaticResource BtnBig}" Name="btnMAO" HorizontalAlignment="Right" Margin="0,110,100,0" Grid.Row="1" VerticalAlignment="Center" Click="btnMAO_Click">
+            <TextBlock Text="Владельцы по марке и цвету" TextWrapping="WrapWithOverflow" TextAlignment="Center"/>
+        </Button>
+    </Grid>
+</Window>
